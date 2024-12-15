@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -23,7 +23,7 @@ export default function DashboardPage() {
         <Card className="p-6">
           <Tabs defaultValue="emotion" className="space-y-4">
             <TabsList className="grid grid-cols-1 md:grid-cols-4">
-              <TabsTrigger value="emotion">Emotion Detection</TabsTrigger>
+              <TabsTrigger value="emotion">Sentiment Detection</TabsTrigger>
               <TabsTrigger value="mood">Mood Tracking</TabsTrigger>
               <TabsTrigger value="relax">Relaxation</TabsTrigger>
               <TabsTrigger value="therapist">Therapists</TabsTrigger>
