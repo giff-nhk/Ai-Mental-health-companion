@@ -1,5 +1,9 @@
 "use client";
 
+import { useState } from "react";
+import { Brain } from "lucide-react";
+import { analyzeEmotion } from "@/lib/api";
+import type { EmotionResult } from "@/lib/types";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import EmotionDetection from "@/components/EmotionDetection";
@@ -10,6 +14,11 @@ import DashboardHeader from "@/components/DashboardHeader";
 import { useRequireAuth } from "@/hooks/useAuth";
 
 export default function DashboardPage() {
+  const [text, setText] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [results, setResults] = useState<EmotionResult[]>([]);
+  const [error, setError] = useState("");
+
   const isAuthenticated = useRequireAuth();
 
   if (!isAuthenticated) {
